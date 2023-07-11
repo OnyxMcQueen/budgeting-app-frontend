@@ -9,7 +9,11 @@ function Transactions(){
 
     async function fetchData(){
         try{
-            let result = await axios.get(`http://localhost:3001/transactions`);
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions` : 
+            `http://localhost:3001/transactions`
+
+
+            let result = await axios.get(url);
             setBudgetArray(result.data);
         }
         catch(e){

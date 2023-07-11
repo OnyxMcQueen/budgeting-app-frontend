@@ -25,7 +25,11 @@ function NewTransaction(){
         e.preventDefault();
 
         try{
-            let result = await axios.post(`http://localhost:3001/transactions`, {
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions` : 
+            `http://localhost:3001/transactions`;
+
+
+            let result = await axios.post(url, {
                 id: uuidv4(),
                 item_name: itemName,
                 amount: amount,

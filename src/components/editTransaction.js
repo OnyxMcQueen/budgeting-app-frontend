@@ -16,7 +16,11 @@ function EditTransaction(){
 
     async function fetchData(){
         try{
-            let result = await axios.get(`http://localhost:3001/transactions/${id}`);
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions/${id}` : 
+            `http://localhost:3001/transactions/${id}`
+
+
+            let result = await axios.get(url);
 
             const {
                 item_name,
@@ -45,7 +49,11 @@ function EditTransaction(){
     async function handleSubmit(e){
         e.preventDefault();
         try{
-            let result = await axios.put(`http://localhost:3001/transactions/${id}`, {
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions/${id}` : 
+            `http://localhost:3001/transactions/${id}`
+
+
+            let result = await axios.put(url, {
                 item_name: itemName,
                 amount: amount,
                 date: date,

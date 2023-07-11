@@ -12,7 +12,11 @@ function Transaction(){
 
     async function fetchData(){
         try{
-            let result = await axios.get(`http://localhost:3001/transactions/${id}`);
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions/${id}` : 
+            `http://localhost:3001/transactions/${id}`
+
+
+            let result = await axios.get(url);
             setTransaction(result.data);
         }
         catch(e){
@@ -37,7 +41,11 @@ function Transaction(){
 
     async function handleDelete(){
         try{
-            let result = await axios.delete(`http://localhost:3001/transactions/${id}`);
+            let url = process.env.NODE_ENV === "production" ? `https://budgeting-app-backend-akii.onrender.com/transactions/${id}` : 
+            `http://localhost:3001/transactions/${id}`
+
+
+            let result = await axios.delete(url);
             alert("You have deleted this transaction successfully, redirecting to the home page.");
             navigate('/transactions');
         }
