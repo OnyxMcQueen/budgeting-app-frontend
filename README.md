@@ -1,4 +1,6 @@
-# Welcome to my Budgeting App 
+# Welcome to my Budgeting App 💵
+
+The web application is a Budget App with a dynamic and intuitive frontend powered by React and Axios frameworks. It provides users with a seamless experience to manage their expenses and income effectively. Through the app, users can effortlessly create and manage lists of expenses or income, gaining valuable insights into their financial activities. With its modern design and efficient API calls, this frontend application ensures a smooth and interactive user interface, making it an ideal tool for individuals seeking to take charge of their finances with ease.
 
 
 
